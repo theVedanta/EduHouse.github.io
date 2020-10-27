@@ -1,0 +1,288 @@
+/* Standard ------------------------------------------------------------------------ */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: Poppins;
+}
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+a {
+    display: inline-block;
+    text-decoration: none;
+    color: #000;
+}
+body {
+    background: #fbfbfb;
+    width: 100vw;
+    height: auto;
+    overflow-x: hidden;
+}
+::selection {
+    background-color: #212f3e;
+    color: #f4f4f4;
+}
+:root {
+    --red: #f7444e;
+    --white: #fbfbfb;
+    --lBlue: #78bcc4;
+    --dBlue: #002c3e;
+    --black: #212f3e;
+}
+.big {
+    width: 100vw;
+    height: 300vh;
+}
+section, footer {
+    overflow: hidden;
+}
+.btn span {
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    background: dodgerblue;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+    z-index: -1;
+}
+.btn {
+    text-transform: uppercase;
+    color: #000;
+    border-radius: 30px;
+    border: 3px dodgerblue solid;
+    padding: 1vh 2.4vw;
+    font-weight: 900;
+    letter-spacing: 3px;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+    transform: translateY(100px);
+    opacity: 0;
+    animation: fadeUp 2s 4s forwards;
+}
+.btn:hover span {
+    width: 500px;
+    height: 500px;
+}
+/* Animations ----------------------------------------------------------------- */
+@keyframes side {
+    0% {width: 0;}
+    100% {width: 25vw;}
+}
+@keyframes pic {
+    0% {transform: scale(0);}
+    100% {transform: scale(1);}
+}
+@keyframes fadeUp {
+    0% {transform: translateY(100px);opacity: 0;}
+    100% {transform: translateY(0);opacity: 1;}
+}
+/* Nav ---------------------------------------------------------------------- */
+nav {
+    width: 90vw;
+    height: 60px;
+    position: fixed;
+    top: 30px;
+    left: 5vw;
+    border-radius: 50px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.212);
+    display: flex;
+    transition: all 0.7s;
+    background: var(--white);
+    z-index: 3;
+}
+.navBrand {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 2vw;
+}
+.navLinks {
+    flex: 4;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 2vw;
+}
+nav a {
+    padding: 0.5vh 1.6vw;
+    margin: 0 0.3vw;
+    border-radius: 14px;
+    font-size: 18px;
+    transition: all 0.2s;
+}
+nav a:hover {
+    background: #ee5353;
+    color: #fff;
+}
+.navActive {
+    background: dodgerblue;
+    color: #fff;
+}
+.navActive:hover {
+    background: dodgerblue;
+}
+.navSocial {
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.navSocial a {
+    font-size: 28px;
+    color: #192029;
+}
+.navSocial a:hover {
+    color: dodgerblue;
+    background: transparent;
+}
+/* Main ------------------------------------------------------------ */
+main {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.backBlock {
+    width: 0;
+    height: 100vh;
+    background: dodgerblue;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    display: inline-block;
+    animation: side 1s forwards;
+}
+.main {
+    width: 90vw;
+    height: 70vh;
+    padding-left: 3vw;
+    display: flex;
+}
+.main img {
+    width: 38vw;
+    height: 38vw;
+    transform: scale(0);
+    border-radius: 100%;
+    pointer-events: none;
+    animation: pic 1s 1s forwards;
+}
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    margin-left: 4vw;
+    padding-top: 4vh;
+}
+main h1 {
+    font-size: 6vw;
+    transform: translateY(100px);
+    opacity: 0;
+    animation: fadeUp 1s 2s forwards;
+}
+main p {
+    padding: 2vw;
+    font-size: 3vh;
+    transform: translateY(100px);
+    opacity: 0;
+    text-align: justify;
+    animation: fadeUp 1s 3s forwards;
+}
+/* Footer --------------------------------------------------------------- */
+footer {
+    width: 100vw;
+    height: auto;
+    background: #010101;
+    background-size: cover;
+    display: flex;
+    padding: 2vh 8vw;
+    padding-bottom: 4vh;
+    overflow: hidden;
+}
+.foot {
+    flex: 1;
+    height: auto;
+    color: #fff;
+    text-align: center;
+    overflow: hidden;
+}
+.foot:nth-child(2) {
+    flex: 2;
+    text-align: center;
+}
+.foot h2 {
+    font-size: 3vw;
+}
+.socialCont {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 2vh 0;
+}
+.socialCont i {
+    color: #00d2d3;
+    transition: all 0.3s;
+}
+.socialCont i:hover {
+    transform: scale(1.4);
+}
+.foot h4 {
+    font-size: 2vh;
+    margin: 3vh;
+}
+.pics {
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+}
+.pic {
+    border: 1px #f4f4f4 solid;
+    width: 30%;
+    height: 10vh;
+    flex: 1;
+    border-collapse: collapse;
+    margin: 3px;
+}
+.subFootCont {
+    display: flex;
+    height: 80%;
+    padding: 0 6vw;
+    overflow-y: hidden;
+}
+.subFoot {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+}
+.subFoot h4 {
+    font-size: 2.6vh;
+}
+.subFoot a {
+    color: rgb(105, 105, 105);
+    font-size: 2vh;
+    padding: 0.3vh 0;
+    transition: 0.2s;
+}
+.subFoot a:hover {
+    color: rgb(192, 193, 193);
+}
+.right {
+    background: #010101;
+    text-align: center;
+    color: rgb(66, 66, 66);
+}

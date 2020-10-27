@@ -1,0 +1,383 @@
+/* Standard ------------------------------------------------------------------------ */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: Poppins;
+}
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+a {
+    display: inline-block;
+    text-decoration: none;
+    color: #000;
+}
+body {
+    background: #fbfbfb;
+}
+main {
+    width: 100vw;
+    height: auto;
+    overflow-x: hidden;
+}
+::selection {
+    background-color: #212f3e;
+    color: #f4f4f4;
+}
+:root {
+    --red: #f7444e;
+    --white: #fbfbfb;
+    --lBlue: #78bcc4;
+    --dBlue: #002c3e;
+    --black: #212f3e;
+}
+.big {
+    width: 100vw;
+    height: 300vh;
+}
+section, footer {
+    overflow: hidden;
+}
+.btn span {
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    background: dodgerblue;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+    z-index: -1;
+}
+.btn {
+    text-transform: uppercase;
+    color: #000;
+    border-radius: 30px;
+    border: 3px dodgerblue solid;
+    padding: 1vh 2.4vw;
+    font-weight: 900;
+    letter-spacing: 3px;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+}
+.btn:hover span {
+    width: 500px;
+    height: 500px;
+}
+/* Animations --------------------------------------------------------------- */
+@keyframes grow {
+    0% {transform: scale(0);}
+    100% {transform: scale(1);}
+}
+@keyframes come {
+    0% {transform: translateX(-70vw);}
+    100% {transform: translateX(0);}
+}
+@keyframes up {
+    0% {opacity: 0;transform: translateY(100px);}
+    100% {opacity: 1;transform: translateY(0);}
+}
+/* Nav ---------------------------------------------------------------------- */
+nav {
+    width: 90vw;
+    height: 60px;
+    position: fixed;
+    top: 30px;
+    left: 5vw;
+    border-radius: 50px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.212);
+    display: flex;
+    transition: all 0.7s;
+    background: var(--white);
+    z-index: 3;
+}
+.darkNav {
+    background: rgba(33, 48, 63, 0.98);
+    color: #fff;
+}
+.darkNav a {
+    color: #fff;
+}
+.darkNav .navSocial a {
+    color: #fff;
+}
+.darkNav .navSocial a:hover {
+    color: #1e90ff;
+}
+.navBrand {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 2vw;
+}
+nav sup {
+    position: absolute;
+}
+.navLinks {
+    flex: 4;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 2vw;
+}
+nav a {
+    padding: 0.5vh 1.6vw;
+    margin: 0 0.3vw;
+    border-radius: 14px;
+    font-size: 18px;
+    transition: all 0.2s;
+}
+nav a:hover {
+    background: #ee5353;
+    color: #fff;
+}
+.navActive {
+    background: dodgerblue;
+    color: #fff;
+}
+.navActive:hover {
+    background: dodgerblue;
+}
+.navSocial {
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.navSocial a {
+    font-size: 28px;
+    color: #192029;
+}
+.navSocial a:hover {
+    color: dodgerblue;
+    background: transparent;
+}
+/* Hero --------------------------------------------------------------- */
+.hero {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -70%;
+    left: -60%;
+    width: 110vw;
+    height: 110vw;
+    background: linear-gradient(315deg, dodgerblue, #00d2d3);
+    border-radius: 50%;
+    z-index: -1;
+    transition: all 0.6s;
+    transform: scale(0);
+    animation: grow 1s forwards;
+}
+.left {
+    height: 100%;
+    width: 52vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.left img {
+    width: 24vw;
+    pointer-events: none;
+    transform: translateX(-70vw);
+    animation: come 1s 1s forwards;
+}
+.left img::selection {
+    background: transparent;
+    color: transparent;
+}
+.right {
+    height: 100%;
+    width: 48vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.right h1 {
+    font-size: 4vw;
+    padding: 3vh 0;
+    transform: translateY(100px);
+    opacity: 0;
+    animation: up 1s 2s forwards;
+}
+.right p {
+    padding: 0 5vw;
+    text-align: justify;
+    font-size: 1.2vw;
+    transform: translateY(100px);
+    opacity: 0;
+    animation: up 1s 3s forwards;
+}
+.right .btn {
+    margin: 3vh 0;
+    transform: translateY(100px);
+    opacity: 0;
+    animation: up 2s 4s forwards;
+}
+/* More --------------------------------------------------------------- */
+.more {
+    width: 100vw;
+    height: auto;
+    background: url(../assets/backs/abtBack.svg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+.more h1 {
+    text-align: center;
+    font-size: 3vw;
+    padding: 3vh 0;
+}
+/* Grid ---------------------------------------------------------------- */
+.gridHold {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10vh;
+}
+.grid {
+    width: 70vw;
+    height: 69vh;
+}
+.cardHold {
+    height: auto;
+    width: 100%;
+    display: flex;
+    color: #050d16;
+}
+.cardHold h2 {
+    padding: 0.8vh;
+    text-align: center;
+}
+.cardHold i {
+    font-size: 4.6vh;
+}
+.cardHold p {
+    text-align: center;
+    padding: 0 2vw;
+    font-size: 1.4vh;
+}
+.bigCard {
+    flex: 2;
+    height: 23vh;
+    border-radius: 14px;
+    background: #00ebeb;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.card {
+    flex: 1;
+    height: 23vh;
+    border-radius: 14px;
+    background: #ff647e;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.card:nth-child(2) {
+    background: rgb(40, 187, 255);
+}
+/* Footer --------------------------------------------------------------- */
+footer {
+    width: 100vw;
+    height: auto;
+    background: #010101;
+    background-size: cover;
+    display: flex;
+    padding: 2vh 8vw;
+    padding-bottom: 4vh;
+    overflow: hidden;
+}
+.foot {
+    flex: 1;
+    height: auto;
+    color: #fff;
+    text-align: center;
+    overflow: hidden;
+}
+.foot:nth-child(2) {
+    flex: 2;
+    text-align: center;
+}
+.foot h2 {
+    font-size: 3vw;
+}
+.socialCont {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 2vh 0;
+}
+.socialCont i {
+    color: #00d2d3;
+    transition: all 0.3s;
+}
+.socialCont i:hover {
+    transform: scale(1.4);
+}
+.foot h4 {
+    font-size: 2vh;
+    margin: 3vh;
+}
+.pics {
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+}
+.pic {
+    border: 1px #f4f4f4 solid;
+    width: 30%;
+    height: 10vh;
+    flex: 1;
+    border-collapse: collapse;
+    margin: 3px;
+}
+.subFootCont {
+    display: flex;
+    height: 80%;
+    padding: 0 6vw;
+    overflow-y: hidden;
+}
+.subFoot {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+}
+.subFoot h4 {
+    font-size: 2.6vh;
+}
+.subFoot a {
+    color: rgb(105, 105, 105);
+    font-size: 2vh;
+    padding: 0.3vh 0;
+    transition: 0.2s;
+}
+.subFoot a:hover {
+    color: rgb(192, 193, 193);
+}
+.footRight {
+    background: #010101;
+    text-align: center;
+    color: rgb(66, 66, 66);
+}
