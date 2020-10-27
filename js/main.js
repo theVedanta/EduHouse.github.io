@@ -66,3 +66,16 @@ $(document).ready(function(e) {
       $(this).find("span").css({top: y, left: x})
   })
 })
+// Loading ------------------------------------------------------------------
+function counter() {
+  let count = setInterval(function() {
+    let c = parseInt($(".counter").text())
+    $(".counter").text((++c).toString())
+    if (c == 100) {
+      clearInterval(count)
+      $(".counter").addClass("hide")
+      $(".preloader").addClass("active")
+    }
+  }, 40);
+}
+counter()
